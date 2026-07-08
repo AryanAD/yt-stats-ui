@@ -1,0 +1,43 @@
+{
+  "title": "YouTube watch history",
+  "interval": {
+    "start": "2023-01-01T00:00:00Z",
+    "end": "2023-12-31T23:59:59Z"
+  },
+  "heading": "Watch history",
+  "contents": [
+    {
+      "title": "Building a Next.js App from Scratch",
+      "titleUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "channel": "Code Channel",
+      "channelUrl": "https://www.youtube.com/@codechannel",
+      "thumbnails": [
+        { "url": "https://example.com/thumb1.jpg", "width": 360, "height": 202 }
+      ],
+      "time": "2023-01-15T08:30:00Z"
+    },
+    {
+      "title": "LoFi Beats to Code To",
+      "titleUrl": "https://www.youtube.com/watch?v=abcdefghijk",
+      "subtitles": [
+        { "name": "Chill Beats", "url": "https://www.youtube.com/@chillbeats" }
+      ],
+      "time": "2023-02-20T22:10:00Z"
+    },
+    {
+      "title": "Understanding Web Workers",
+      "titleUrl": "https://www.youtube.com/watch?v=zyxwvutsrq1",
+      "channel": "Code Channel",
+      "time": "2023-03-10T14:45:00Z"
+    },
+    {
+      "titleUrl": "https://www.youtube.com/watch?v=shortlink1",
+      "subtitles": [{ "name": "News Desk" }],
+      "time": "2023-06-05T09:00:00Z"
+    },
+    {
+      "description": "Visited YouTube Music",
+      "time": "2023-07-12T18:25:00Z"
+    }
+  ]
+}

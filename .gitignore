@@ -23,4 +23,4 @@ yarn-error.log*
 client/next-env.d.ts
 
 # Private agent documentation (internal only, do not publish)
-# agent/
+agent/

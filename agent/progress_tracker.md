@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Phase 4: Dashboard Components (layout + Overview done; charts/sections pending)
+- Phase 5: Polish & Optimization (theme toggle, skeletons, animations pending) — Phase 4 sections complete
 
 ## Current Goal
 
-- Implement the remaining Phase 4 analytics sections (timeline, habits, channels, keywords, streaks, sessions, search, calendar, heatmaps, statistics, export, achievements).
+- Phase 5 polish: dark/light mode toggle, loading skeletons, Framer Motion animations, responsive pass, accessibility, Lighthouse.
 
 ## Completed
 
@@ -49,29 +49,48 @@ Update this file whenever the current phase, active feature, or implementation s
 - [x] Build footer with GitHub link (`components/landing/footer.tsx` + `lib/site.ts`)
 - [x] Compose landing page (`app/page.tsx`)
 
+### Phase 4: Dashboard Components (analytics)
+- [x] Install Recharts + add shared chart components (`area-chart`, `bar-chart`, `heatmap`) and `StatCard`
+- [x] Add analytics modules: `habits`, `streaks`, `sessions`, `keywords` (time helpers in `time.ts`)
+- [x] Build Watch Timeline (monthly area chart + GitHub-style activity heatmap)
+- [x] Create Daily Habits (hour / weekday / month bar charts)
+- [x] Implement Channel Analytics (searchable, sortable table)
+- [x] Build Keyword Analysis (word cloud + top words/phrases, 1/2-grams)
+- [x] Implement Viewing Streaks (longest/current streak, most-in-a-day)
+- [x] Build Session Analytics (group by >45min gap)
+- [x] Build Heatmaps (hour × weekday grid)
+- [x] Create Statistics section (fun facts)
+- [x] Implement Topic Detection (rule-based classification + Recharts pie)
+- [x] Build Search & Filtering (query / channel / date range)
+- [x] Build Calendar Explorer (year → month → day drill-down)
+- [x] Implement Export features (CSV / JSON / PNG share card via `html-to-image`)
+- [x] Build Achievement System (12 badge rules)
+- [x] Wire all sections into `dashboard-app.tsx`
+
 ## In Progress
 
-- Phase 4 dashboard sections: charts, timeline, habits, channel analytics, keyword analysis, etc.
+- Phase 5 polish: dark/light mode toggle, loading skeletons, Framer Motion animations, responsive pass, accessibility, Lighthouse
+- Note: removed an orphaned `lib/analytics/insights.ts` and reverted `overview.tsx` to use the typed `NormalizedEntry` modules (it conflicted with the nullable `time` / missing `titleUrl` shape).
 
 ## Next Steps
 
 ### Phase 4: Dashboard Components
 - [x] Create dashboard layout with sidebar/navigation (`dashboard-app.tsx`, `sidebar.tsx`)
 - [x] Implement Overview section with statistics cards + top channels (`overview.tsx`)
-- [ ] Build Watch Timeline with charts and heatmap
-- [ ] Create Daily Habits section
-- [ ] Implement Channel Analytics (full table/details)
-- [ ] Build Keyword Analysis with word cloud
-- [ ] Create Topic Detection visualization
-- [ ] Implement Viewing Streaks
-- [ ] Build Session Analytics
-- [ ] Create Search & Filtering
-- [ ] Implement Calendar Explorer
-- [ ] Build Heatmaps
-- [ ] Create Statistics section
-- [ ] Implement Export features (PNG/PDF/CSV/JSON)
-- [ ] Build Achievement System
-- Note: non-Overview sections currently render a "Coming soon" placeholder.
+- [x] Build Watch Timeline with charts and heatmap
+- [x] Create Daily Habits section
+- [x] Implement Channel Analytics (full table/details)
+- [x] Build Keyword Analysis with word cloud
+- [x] Implement Viewing Streaks
+- [x] Build Session Analytics
+- [x] Build Heatmaps
+- [x] Create Statistics section
+- [x] Create Topic Detection visualization
+- [x] Create Search & Filtering
+- [x] Implement Calendar Explorer
+- [x] Implement Export features (CSV / JSON / PNG)
+- [x] Build Achievement System
+- Note: All 16+ dashboard sections are now implemented. Video Analytics / Creator Analytics remain future enhancements per the overview doc.
 
 ### Phase 5: Polish & Optimization
 - [ ] Implement dark/light mode

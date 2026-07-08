@@ -6,6 +6,19 @@ import { ArrowLeft, Inbox } from "lucide-react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Overview } from "@/components/dashboard/overview";
+import { ChannelAnalytics } from "@/components/dashboard/sections/channel-analytics";
+import { DailyHabits } from "@/components/dashboard/sections/daily-habits";
+import { Heatmaps } from "@/components/dashboard/sections/heatmaps";
+import { KeywordAnalysis } from "@/components/dashboard/sections/keyword-analysis";
+import { SessionAnalytics } from "@/components/dashboard/sections/session-analytics";
+import { Statistics } from "@/components/dashboard/sections/statistics";
+import { ViewingStreaks } from "@/components/dashboard/sections/viewing-streaks";
+import { WatchTimeline } from "@/components/dashboard/sections/watch-timeline";
+import { Achievements } from "@/components/dashboard/sections/achievements";
+import { CalendarExplorer } from "@/components/dashboard/sections/calendar-explorer";
+import { ExportSection } from "@/components/dashboard/sections/export";
+import { SearchFiltering } from "@/components/dashboard/sections/search-filtering";
+import { TopicDetection } from "@/components/dashboard/sections/topic-detection";
 import { Sidebar, type DashboardSection } from "@/components/dashboard/sidebar";
 import { useHistoryStore } from "@/lib/store";
 
@@ -36,6 +49,41 @@ function ComingSoon({ label }: { label: string }) {
       </p>
     </div>
   );
+}
+
+function renderSection(active: string, label: string) {
+  switch (active) {
+    case "overview":
+      return <Overview />;
+    case "timeline":
+      return <WatchTimeline />;
+    case "daily-habits":
+      return <DailyHabits />;
+    case "channels":
+      return <ChannelAnalytics />;
+    case "keywords":
+      return <KeywordAnalysis />;
+    case "streaks":
+      return <ViewingStreaks />;
+    case "sessions":
+      return <SessionAnalytics />;
+    case "heatmaps":
+      return <Heatmaps />;
+    case "statistics":
+      return <Statistics />;
+    case "topics":
+      return <TopicDetection />;
+    case "search":
+      return <SearchFiltering />;
+    case "calendar":
+      return <CalendarExplorer />;
+    case "achievements":
+      return <Achievements />;
+    case "export":
+      return <ExportSection />;
+    default:
+      return <ComingSoon label={label} />;
+  }
 }
 
 function EmptyState() {
@@ -85,13 +133,7 @@ export function DashboardApp() {
             New file
           </Link>
         </header>
-        <main className="flex-1 p-6">
-          {active === "overview" ? (
-            <Overview />
-          ) : (
-            <ComingSoon label={activeLabel} />
-          )}
-        </main>
+        <main className="flex-1 p-6">{renderSection(active, activeLabel)}</main>
       </div>
     </div>
   );

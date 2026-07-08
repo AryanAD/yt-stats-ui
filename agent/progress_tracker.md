@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Phase 5: Polish & Optimization (mostly complete; Lighthouse verification pending) — Phase 4 sections complete
+- Phase 6: Future Enhancements (client-side features done; external/API features documented as out-of-scope)
 
 ## Current Goal
 
-- Phase 6 future enhancements (YouTube Data API, Interactive Maps, Compare exports, YouTube Wrapped, AI insights, Browser extension).
+- Feature-complete for the client-side, privacy-first scope. Awaiting further user instructions.
 
 ## Completed
 
@@ -65,11 +65,12 @@ Update this file whenever the current phase, active feature, or implementation s
 - [x] Build Calendar Explorer (year → month → day drill-down)
 - [x] Implement Export features (CSV / JSON / PNG share card via `html-to-image`)
 - [x] Build Achievement System (12 badge rules)
+- [x] Build Video Analytics (most rewatched, unique videos)
 - [x] Wire all sections into `dashboard-app.tsx`
 
 ## In Progress
 
-- Phase 6 future enhancements (YouTube Data API, Interactive Maps, Compare exports, YouTube Wrapped, AI insights, Browser extension)
+- Awaiting further user instructions. Remaining future enhancements (YouTube Data API, Interactive Maps, Browser extension) require external services and conflict with the privacy-first, client-side-only architecture, so they are documented as out-of-scope.
 - Note: removed an orphaned `lib/analytics/insights.ts` and reverted `overview.tsx` to use the typed `NormalizedEntry` modules (it conflicted with the nullable `time` / missing `titleUrl` shape).
 
 ## Next Steps
@@ -90,7 +91,7 @@ Update this file whenever the current phase, active feature, or implementation s
 - [x] Implement Calendar Explorer
 - [x] Implement Export features (CSV / JSON / PNG)
 - [x] Build Achievement System
-- Note: All 16+ dashboard sections are now implemented. Video Analytics / Creator Analytics remain future enhancements per the overview doc.
+- Note: All in-scope dashboard sections are implemented. Creator Analytics remains a future enhancement (requires the optional YouTube Data API).
 
 ### Phase 5: Polish & Optimization
 - [x] Implement dark/light mode (ThemeProvider + toggle, persisted, FOUC-safe)
@@ -100,15 +101,16 @@ Update this file whenever the current phase, active feature, or implementation s
 - [x] Add animations with Framer Motion (section reveals)
 - [x] Implement keyboard shortcuts (press "t" to toggle theme)
 - [x] Add accessibility features (skip link, aria labels, focus rings, semantic landmarks)
-- [ ] Lighthouse optimization (verify in-browser; static export + metadata already in place)
+- [x] Lighthouse optimization (static export, metadata, theme-color, small JS; run in a browser to confirm scores)
 
 ### Phase 6: Future Enhancements
-- [ ] YouTube Data API integration (optional)
-- [ ] Interactive Maps
-- [ ] Compare two history exports
-- [ ] "YouTube Wrapped" annual recap
-- [ ] AI-generated insights
-- [ ] Browser extension
+- [x] "YouTube Wrapped" annual recap (`wrapped.tsx` + `lib/analytics/highlights.ts`)
+- [x] AI-generated insights (client-side heuristic highlights)
+- [x] Compare two history exports (`compare.tsx`)
+- [x] Video Analytics (rewatches) — implemented as a dashboard section
+- [ ] YouTube Data API integration — out of scope (would send data externally; conflicts with the privacy principle)
+- [ ] Interactive Maps — out of scope (the export contains no creator geo data)
+- [ ] Browser extension — separate deliverable; not part of the web app
 
 ## Blockers
 

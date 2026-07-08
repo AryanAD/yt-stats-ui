@@ -17,6 +17,9 @@ import { WatchTimeline } from "@/components/dashboard/sections/watch-timeline";
 import { Achievements } from "@/components/dashboard/sections/achievements";
 import { CalendarExplorer } from "@/components/dashboard/sections/calendar-explorer";
 import { ExportSection } from "@/components/dashboard/sections/export";
+import { VideoAnalytics } from "@/components/dashboard/sections/video-analytics";
+import { Wrapped } from "@/components/dashboard/sections/wrapped";
+import { Compare } from "@/components/dashboard/sections/compare";
 import { SearchFiltering } from "@/components/dashboard/sections/search-filtering";
 import { TopicDetection } from "@/components/dashboard/sections/topic-detection";
 import { Sidebar, type DashboardSection } from "@/components/dashboard/sidebar";
@@ -40,6 +43,8 @@ const SECTIONS: DashboardSection[] = [
   { id: "statistics", label: "Statistics" },
   { id: "achievements", label: "Achievements" },
   { id: "export", label: "Export" },
+  { id: "wrapped", label: "Wrapped" },
+  { id: "compare", label: "Compare" },
 ];
 
 function ComingSoon({ label }: { label: string }) {
@@ -83,6 +88,12 @@ function renderSection(active: string, label: string) {
       return <Achievements />;
     case "export":
       return <ExportSection />;
+    case "videos":
+      return <VideoAnalytics />;
+    case "wrapped":
+      return <Wrapped />;
+    case "compare":
+      return <Compare />;
     default:
       return <ComingSoon label={label} />;
   }

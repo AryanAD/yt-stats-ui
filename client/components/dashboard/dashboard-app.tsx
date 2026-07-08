@@ -20,6 +20,8 @@ import { ExportSection } from "@/components/dashboard/sections/export";
 import { SearchFiltering } from "@/components/dashboard/sections/search-filtering";
 import { TopicDetection } from "@/components/dashboard/sections/topic-detection";
 import { Sidebar, type DashboardSection } from "@/components/dashboard/sidebar";
+import { Reveal } from "@/components/motion/reveal";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { useHistoryStore } from "@/lib/store";
 
 const SECTIONS: DashboardSection[] = [
@@ -118,22 +120,41 @@ export function DashboardApp() {
     <div className="flex min-h-screen bg-background">
       <Sidebar sections={SECTIONS} active={active} onSelect={setActive} />
       <div className="flex flex-1 flex-col">
-        <header className="flex items-center justify-between border-b px-6 py-4">
-          <div>
+        <header className="flex items-center justify-between gap-3 border-b px-6 py-4">
+          <div className="min-w-0">
             <h1 className="text-lg font-semibold">{activeLabel}</h1>
             {fileName && (
-              <p className="text-xs text-muted-foreground">{fileName}</p>
+              <p className="truncate text-xs text-muted-foreground">
+                {fileName}
+              </p>
             )}
           </div>
-          <Link
-            href="/"
-            className={buttonVariants({ variant: "outline", size: "sm" })}
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" aria-hidden />
-            New file
-          </Link>
+          <div className="flex items-center gap-2">
+            <select
+              value={active}
+              onChange={(e) => setActive(e.target.value)}
+              aria-label="Select dashboard section"
+              className="h-9 rounded-md border border-input bg-background px-2 text-sm md:hidden"
+            >
+              {SECTIONS.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.label}
+                </option>
+              ))}
+            </select>
+            <ThemeToggle />
+            <Link
+              href="/"
+              className={buttonVariants({ variant: "outline", size: "sm" })}
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" aria-hidden />
+              New file
+            </Link>
+          </div>
         </header>
-        <main className="flex-1 p-6">{renderSection(active, activeLabel)}</main>
+        <main id="main" className="flex-1 p-6">
+          <Reveal key={active}>{renderSection(active, activeLabel)}</Reveal>
+        </main>
       </div>
     </div>
   );

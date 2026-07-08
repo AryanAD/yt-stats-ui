@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Phase 5: Polish & Optimization (theme toggle, skeletons, animations pending) — Phase 4 sections complete
+- Phase 5: Polish & Optimization (mostly complete; Lighthouse verification pending) — Phase 4 sections complete
 
 ## Current Goal
 
-- Phase 5 polish: dark/light mode toggle, loading skeletons, Framer Motion animations, responsive pass, accessibility, Lighthouse.
+- Phase 6 future enhancements (YouTube Data API, Interactive Maps, Compare exports, YouTube Wrapped, AI insights, Browser extension).
 
 ## Completed
 
@@ -69,7 +69,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## In Progress
 
-- Phase 5 polish: dark/light mode toggle, loading skeletons, Framer Motion animations, responsive pass, accessibility, Lighthouse
+- Phase 6 future enhancements (YouTube Data API, Interactive Maps, Compare exports, YouTube Wrapped, AI insights, Browser extension)
 - Note: removed an orphaned `lib/analytics/insights.ts` and reverted `overview.tsx` to use the typed `NormalizedEntry` modules (it conflicted with the nullable `time` / missing `titleUrl` shape).
 
 ## Next Steps
@@ -93,14 +93,14 @@ Update this file whenever the current phase, active feature, or implementation s
 - Note: All 16+ dashboard sections are now implemented. Video Analytics / Creator Analytics remain future enhancements per the overview doc.
 
 ### Phase 5: Polish & Optimization
-- [ ] Implement dark/light mode
-- [ ] Add responsive design for mobile
-- [ ] Implement loading skeletons
-- [ ] Performance optimization
-- [ ] Add animations with Framer Motion
-- [ ] Implement keyboard shortcuts
-- [ ] Add accessibility features
-- [ ] Lighthouse optimization
+- [x] Implement dark/light mode (ThemeProvider + toggle, persisted, FOUC-safe)
+- [x] Add responsive design for mobile (mobile section nav, responsive grids)
+- [x] Implement loading skeletons (upload processing state + Skeleton primitive)
+- [x] Performance optimization (Web Worker parsing; lightweight static export)
+- [x] Add animations with Framer Motion (section reveals)
+- [x] Implement keyboard shortcuts (press "t" to toggle theme)
+- [x] Add accessibility features (skip link, aria labels, focus rings, semantic landmarks)
+- [ ] Lighthouse optimization (verify in-browser; static export + metadata already in place)
 
 ### Phase 6: Future Enhancements
 - [ ] YouTube Data API integration (optional)

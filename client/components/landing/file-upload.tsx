@@ -4,6 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { UploadCloud } from "lucide-react";
 
+import { Skeleton } from "@/components/ui/skeleton";
+
 import { Button } from "@/components/ui/button";
 import { useHistoryWorker } from "@/hooks/useHistoryWorker";
 import { useHistoryStore } from "@/lib/store";
@@ -61,34 +63,44 @@ export function FileUpload() {
 
   return (
     <div className="flex w-full max-w-md flex-col items-center gap-3">
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={() => inputRef.current?.click()}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") inputRef.current?.click();
-        }}
-        onDragOver={(e) => {
-          e.preventDefault();
-          setDragging(true);
-        }}
-        onDragLeave={() => setDragging(false)}
-        onDrop={onDrop}
-        className={
-          "flex w-full cursor-pointer flex-col items-center gap-2 rounded-xl border-2 border-dashed p-8 text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring " +
-          (dragging
-            ? "border-primary bg-primary/5"
-            : "border-muted-foreground/30 hover:border-primary/60")
-        }
-      >
-        <UploadCloud className="h-8 w-8 text-muted-foreground" aria-hidden />
-        <p className="text-sm font-medium">
-          {busy ? "Processing your file…" : "Drag & drop watch-history.json"}
-        </p>
-        <p className="text-xs text-muted-foreground">
-          or click to browse — nothing is uploaded
-        </p>
-      </div>
+      {busy ? (
+        <div
+          className="flex w-full flex-col items-center gap-3 rounded-xl border p-8 text-center"
+          aria-live="polite"
+        >
+          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-4 w-48" />
+          <Skeleton className="h-3 w-40" />
+          <p className="text-sm text-muted-foreground">Processing your file…</p>
+        </div>
+      ) : (
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => inputRef.current?.click()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") inputRef.current?.click();
+          }}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setDragging(true);
+          }}
+          onDragLeave={() => setDragging(false)}
+          onDrop={onDrop}
+          className={
+            "flex w-full cursor-pointer flex-col items-center gap-2 rounded-xl border-2 border-dashed p-8 text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring " +
+            (dragging
+              ? "border-primary bg-primary/5"
+              : "border-muted-foreground/30 hover:border-primary/60")
+          }
+        >
+          <UploadCloud className="h-8 w-8 text-muted-foreground" aria-hidden />
+          <p className="text-sm font-medium">Drag &amp; drop watch-history.json</p>
+          <p className="text-xs text-muted-foreground">
+            or click to browse — nothing is uploaded
+          </p>
+        </div>
+      )}
 
       <input
         ref={inputRef}

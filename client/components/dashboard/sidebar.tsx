@@ -20,7 +20,7 @@ export function Sidebar({ sections, active, onSelect }: SidebarProps) {
         <BarChart3 className="h-5 w-5 text-primary" aria-hidden />
         <span className="font-semibold">YouTube Insights</span>
       </div>
-      <nav className="flex-1 space-y-1 p-3">
+      <nav className="flex-1 space-y-1 p-3" aria-label="Dashboard sections">
         {sections.map((section) => {
           const isActive = section.id === active;
           return (
